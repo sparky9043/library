@@ -14,7 +14,8 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
   
   switch (event.target.className) {
     case "add":
-      console.log(this);
+      const inputs = modal.querySelectorAll('ul input');
+      getBookInfo(inputs);
       break;
     case "close":
       modal.close();
@@ -23,3 +24,17 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
       break;
   }
 }));
+
+function getBookInfo(inputList) {
+  let title;
+  let author;
+  let pages;
+
+  for (const input of inputList) {
+    if (input.id.includes('title')) title = input.value;
+    else if (input.id.includes('author')) author = input.value;
+    else if (input.id.includes('pages')) pages = input.value;
+  }
+
+  console.log(title, author, pages);
+}
