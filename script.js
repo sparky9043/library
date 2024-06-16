@@ -57,11 +57,13 @@ function addBookToLibrary(title, author, pages) {
 
 function copyInfoToCard(target, bookObject) {
   const card = document.createElement('div');
+  const container = document.createElement('div');
   const title = document.createElement('h3');
   const author = document.createElement('p');
   const pages = document.createElement('p');
 
   card.classList.add('card');
+  container.classList.add('container');
   card.dataset.id = myLibrary.length - 1;
 
   title.textContent = bookObject.title;
@@ -82,9 +84,10 @@ function copyInfoToCard(target, bookObject) {
   buttonContainer.appendChild(removeButton);
   buttonContainer.appendChild(readStatusButton);
 
-  card.appendChild(title);
-  card.appendChild(author);
-  card.appendChild(pages);
+  container.appendChild(title);
+  container.appendChild(author);
+  container.appendChild(pages);
+  card.appendChild(container);
   card.appendChild(buttonContainer);
 
   target.appendChild(card);
@@ -105,10 +108,11 @@ function attachListenerToButtons(card, remove, readStatus) {
     removeCard.call(card);
   });
 
-  readStatus.addEventListener('click', function(e) {
-    console.log(this);
+  readStatus.addEventListener('click', function() {
+    function updateReadStatus() {
+      console.log(this);
+    }
   });
-
 }
 
 function reassignDataID(index) {
