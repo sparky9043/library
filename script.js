@@ -68,9 +68,24 @@ function copyInfoToCard(target, bookObject) {
   author.textContent = bookObject.author;
   pages.textContent = bookObject.pages;
 
+  const buttonContainer = document.createElement('div');
+  const removeButton = document.createElement('button');
+  const readStatusButton = document.createElement('button');
+
+  buttonContainer.classList.add('button-container');
+  removeButton.classList.add('remove-book');
+  readStatusButton.classList.add('read-status');
+
+  removeButton.textContent = "Remove";
+  readStatusButton.textContent = "Not Read";
+
+  buttonContainer.appendChild(removeButton);
+  buttonContainer.appendChild(readStatusButton);
+
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
+  card.appendChild(buttonContainer);
 
   target.appendChild(card);
 }
