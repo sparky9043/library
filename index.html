@@ -10,6 +10,30 @@
   <title>Library Project | The Odin Project</title>
 </head>
 <body>
+
+  <dialog>
+    <form>
+      <h3>Enter your book info below and press "Add".</h3>
+      <ul>
+        <li>
+          <input type="text">
+        </li>
+        <li>
+          <input type="text">
+        </li>
+        <li>
+          <input type="number">
+        </li>
+        <li>
+          <button>Add</button>
+        </li>
+        <li>
+          <button>Close</button>
+        </li>
+      </ul>
+    </form>
+  </dialog>
+
   <div class="header">
     <div class="container">
       <div class="header__menu row">
@@ -17,7 +41,7 @@
           <h1>My Library</h1>
         </div>
         <div class="header__button">
-          <button><span></span></button>
+          <button class="add-button"></button>
         </div>
       </div>
     </div>
@@ -31,5 +55,6 @@
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
