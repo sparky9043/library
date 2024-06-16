@@ -19,6 +19,7 @@ button {
 }
 
 .header {
+  padding: 1rem 0;
   background: #fcd34d;
 }
 
@@ -30,6 +31,11 @@ button {
 
 ul {
   list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
 }
 
 /* Modal Styles */
@@ -141,9 +147,9 @@ ul li:last-child {
   color: white;
   border-radius: 8px;
   width: calc(10rem + 2vw);
-  min-height: 25vh;
+  min-height: 30vh;
   box-shadow: 1px 1px 4px rgb(124, 124, 124);
-  padding: .5rem 1rem;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -154,5 +160,15 @@ ul li:last-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: .5rem;
+  gap: .8rem;
+}
+
+.button-container button {
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+}
+
+.button-container button:active {
+  filter: brightness(0.8);
 }
