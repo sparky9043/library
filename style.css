@@ -145,3 +145,10 @@ ul li:last-child {
   box-shadow: 1px 1px 4px rgb(124, 124, 124);
   padding: .5rem 1rem;
 }
+
+.main__library .card .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
