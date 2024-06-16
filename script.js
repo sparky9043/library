@@ -108,10 +108,22 @@ function attachListenerToButtons(card, remove, readStatus) {
     removeCard.call(card);
   });
 
-  readStatus.addEventListener('click', function() {
+  readStatus.addEventListener('click', function(event) {
     function updateReadStatus() {
-      console.log(this);
+      const index = this.dataset.id;
+      if (myLibrary[index].readStatus) {
+        myLibrary[index].readStatus = false;
+        event.target.textContent = 'Not Read';
+        this.style.background = '#893d11';
+      } else if (!myLibrary[index].readStatus) {
+        myLibrary[index].readStatus = true;
+        event.target.textContent = 'Read';
+        this.style.background = '#bef264';
+      }
+      console.log(myLibrary);
     }
+
+    updateReadStatus.call(card);
   });
 }
 
