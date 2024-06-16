@@ -126,11 +126,22 @@ ul li:last-child {
   background: url('./images/book-plus.svg');
   width: 3rem;
   height: 3rem;
+  margin-right: 5rem;
 }
 
 .main__library {
-  border: 2px solid red;
   padding: 2rem 0;
 
   flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.main__library .card {
+  background: #893d11;
+  color: white;
+  border-radius: 8px;
+  min-width: 12vw;
+  min-height: 20vh;
+  box-shadow: 1px 1px 4px rgb(124, 124, 124);
+  padding: .5rem 1rem;
 }
