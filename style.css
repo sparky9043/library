@@ -23,7 +23,7 @@ button {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -140,10 +140,14 @@ ul li:last-child {
   background: #893d11;
   color: white;
   border-radius: 8px;
-  min-width: 12vw;
-  min-height: 20vh;
+  width: calc(10rem + 2vw);
+  min-height: 25vh;
   box-shadow: 1px 1px 4px rgb(124, 124, 124);
   padding: .5rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .main__library .card .button-container {
