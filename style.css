@@ -22,13 +22,17 @@ button {
 
 .container {
   width: 80%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .header__menu {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.row {
+  display: flex;
 }
 
 .header__button span {
@@ -50,4 +54,11 @@ button {
 
 .header__button button:active {
   opacity: .7;
+}
+
+.main__library {
+  border: 2px solid red;
+  padding: 2rem 0;
+
+  flex-wrap: wrap;
 }
