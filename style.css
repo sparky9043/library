@@ -66,9 +66,6 @@ ul li:last-child {
   right: -1rem;
 }
 
-.modal input {
-  border: 1px solid rgb(190, 190, 190);
-}
 
 .modal label {
   display: inline-block;
@@ -105,15 +102,21 @@ ul li:last-child {
 }
 
 .modal input {
+  border: 1px solid rgb(190, 190, 190);
   margin-left: .5rem;
   padding: .4rem .3rem;
   border-radius: 5px;
+}
+
+.modal input:invalid {
+  outline: 2px solid red;
 }
 
 .modal input:focus {
   outline: 2px solid #4f46e5;
   box-shadow: 0 0 2px rgb(191, 191, 191);
 }
+
 
 
 /* Content Styles */
