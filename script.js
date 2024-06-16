@@ -62,6 +62,7 @@ function copyInfoToCard(target, bookObject) {
   const pages = document.createElement('p');
 
   card.classList.add('card');
+  card.dataset.id = myLibrary.length - 1;
 
   title.textContent = bookObject.title;
   author.textContent = bookObject.author;
