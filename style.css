@@ -1,3 +1,5 @@
+/* Basic Reset */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -25,6 +27,35 @@ button {
   max-width: 1400px;
   margin: 0 auto;
 }
+
+ul {
+  list-style: none;
+}
+
+/* Modal Styles */
+
+dialog {
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px rgb(208, 208, 208);
+}
+
+form {
+  position: relative;
+}
+
+.modal {
+  border: none;
+}
+
+ul li:last-child {
+  display: inline;
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+}
+
+/* Content Styles */
 
 .header__menu {
   justify-content: space-between;
