@@ -98,7 +98,7 @@ function attachListenerToButtons(card, remove, readStatus) {
       const index = this.dataset.id;
       myLibrary.splice(index, 1);
       this.remove();
-      reassignDataID();
+      reassignDataID(index);
       console.log(myLibrary);
     }
 
@@ -111,9 +111,9 @@ function attachListenerToButtons(card, remove, readStatus) {
 
 }
 
-function reassignDataID() {
+function reassignDataID(index) {
   const cards = document.querySelectorAll('.main__library .card');
-  for (let i = 0; i < cards.length; i++) {
+  for (let i = index; i < cards.length; i++) {
     cards[i].dataset.id = i;
   }
 }
