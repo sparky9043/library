@@ -1,7 +1,14 @@
 const addButton = document.querySelector('.add-button');
-
 const modal = document.querySelector('.modal');
 const modalButtons = document.querySelectorAll('.modal button');
+const myLibrary = [];
+
+function Book(title, author, pages) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.readStatus = false;
+}
 
 addButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -36,5 +43,15 @@ function getBookInfo(inputList) {
     else if (input.id.includes('pages')) pages = input.value;
   }
 
-  console.log(title, author, pages);
+  addBookToLibrary(title, author, pages);
+}
+
+
+function addBookToLibrary(title, author, pages) {
+  const library = document.querySelector('.main__library');
+  const book = new Book(title, author, pages);
+  myLibrary.push(book);
+
+  
+  console.log(library);
 }
