@@ -24,6 +24,7 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
     case "add":
       const inputs = modal.querySelectorAll('ul input');
       getBookInfo(inputs);
+      clearInput(inputs);
       break;
     case "close":
       modal.close();
@@ -47,8 +48,20 @@ function getBookInfo(inputList) {
   addBookToLibrary(title, author, pages);
 }
 
+function clearInput(inputList) {
+  for (const input of inputList) {
+    input.value = '';
+    if (input.id.includes('title')) input.focus();
+    else return;
+  }
+}
+
 
 function addBookToLibrary(title, author, pages) {
+  if (!title || !author) {
+    alert("Please make sure to fill out the title and the author");
+    return;
+  }
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
