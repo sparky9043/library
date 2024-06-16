@@ -35,25 +35,12 @@ button {
   display: flex;
 }
 
-.header__button span {
-  display: inline-grid;
-  content: '';
+.add-button {
+  content: ' ';
+  display: inline-block;
   background: url('./images/book-plus.svg');
   width: 3rem;
   height: 3rem;
-  background-size: contain;
-}
-
-.header__button button {
-  background: none;
-}
-
-.header__button button:hover {
-  opacity: .4;
-}
-
-.header__button button:active {
-  opacity: .7;
 }
 
 .main__library {
