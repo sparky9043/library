@@ -48,12 +48,66 @@ form {
   border: none;
 }
 
+.modal ul li {
+  margin: 1.2rem 0;
+}
+
 ul li:last-child {
   display: inline;
   position: absolute;
   top: -2rem;
   right: -1rem;
 }
+
+.modal input {
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.modal label {
+  display: inline-block;
+  width: 9rem;
+  text-align: right;
+}
+
+.modal .add {
+  display: block;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(181, 181, 181);
+  background: #f5f5f5;
+  margin: 0 auto;
+}
+
+.modal .add:hover {
+  cursor: pointer;
+  filter: brightness(.9);
+}
+
+.modal .add:active {
+  filter: brightness(.6);
+}
+
+.modal .close {
+  background: #ef4444;
+  color: white;
+  font-weight: 700;
+}
+
+.modal .close:hover {
+  opacity: .7;
+}
+
+.modal input {
+  margin-left: .5rem;
+  padding: .4rem .3rem;
+  border-radius: 5px;
+}
+
+.modal input:focus {
+  outline: 2px solid #4f46e5;
+  box-shadow: 0 0 2px rgb(191, 191, 191);
+}
+
 
 /* Content Styles */
 
