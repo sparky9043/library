@@ -53,6 +53,7 @@ form {
 
 .modal {
   border: none;
+  background: rgb(244, 237, 244);
 }
 
 .modal ul li {
@@ -106,10 +107,7 @@ ul li:last-child {
   margin-left: .5rem;
   padding: .4rem .3rem;
   border-radius: 5px;
-}
-
-.modal input:invalid {
-  outline: 2px solid red;
+  background: rgb(240, 240, 240);
 }
 
 .modal input:focus {
@@ -117,6 +115,10 @@ ul li:last-child {
   box-shadow: 0 0 2px rgb(191, 191, 191);
 }
 
+::backdrop {
+  background: black;
+  opacity: .2;
+}
 
 
 /* Content Styles */
