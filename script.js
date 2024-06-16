@@ -50,9 +50,8 @@ function getBookInfo(inputList) {
 
 function clearInput(inputList) {
   for (const input of inputList) {
-    input.value = '';
     if (input.id.includes('title')) input.focus();
-    else return;
+    input.value = '';
   }
 }
 
