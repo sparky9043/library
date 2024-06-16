@@ -52,6 +52,24 @@ function addBookToLibrary(title, author, pages) {
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
-  
-  console.log(library);
+  copyInfoToCard(library, book);
+}
+
+function copyInfoToCard(target, bookObject) {
+  const card = document.createElement('div');
+  const title = document.createElement('h3');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+
+  card.classList.add('card');
+
+  title.textContent = bookObject.title;
+  author.textContent = bookObject.author;
+  pages.textContent = bookObject.pages;
+
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+
+  target.appendChild(card);
 }
