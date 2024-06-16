@@ -1,6 +1,7 @@
 const addButton = document.querySelector('.add-button');
 const modal = document.querySelector('.modal');
 const modalButtons = document.querySelectorAll('.modal button');
+const library = document.querySelector('.main__library');
 const myLibrary = [];
 
 function Book(title, author, pages) {
@@ -48,7 +49,6 @@ function getBookInfo(inputList) {
 
 
 function addBookToLibrary(title, author, pages) {
-  const library = document.querySelector('.main__library');
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
@@ -88,4 +88,32 @@ function copyInfoToCard(target, bookObject) {
   card.appendChild(buttonContainer);
 
   target.appendChild(card);
+
+  attachListenerToButtons(card, removeButton, readStatusButton);
+}
+
+function attachListenerToButtons(card, remove, readStatus) {
+  remove.addEventListener('click', function() {
+    function removeCard() {
+      const index = this.dataset.id;
+      myLibrary.splice(index, 1);
+      this.remove();
+      reassignDataID();
+      console.log(myLibrary);
+    }
+
+    removeCard.call(card);
+  });
+
+  readStatus.addEventListener('click', function(e) {
+    console.log(this);
+  });
+
+}
+
+function reassignDataID() {
+  const cards = document.querySelectorAll('.main__library .card');
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].dataset.id = i;
+  }
 }
