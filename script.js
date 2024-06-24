@@ -28,7 +28,7 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
     case "add":
       const inputs = modal.querySelectorAll('ul input');
       getBookInfo(inputs);
-      // clearInput(inputs);
+      clearInput(inputs);
       break;
     case "close":
       modal.close();
@@ -68,10 +68,10 @@ function addBookToLibrary(title, author, pages) {
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
-  copyInfoToCard(library, book);
+  copyInfoToCard(library, myLibrary);
 }
 
-function copyInfoToCard(target, bookObject) {
+function copyInfoToCard(target, libraryArray) {
   const card = document.createElement('div');
   const container = document.createElement('div');
   const title = document.createElement('h3');
@@ -80,11 +80,11 @@ function copyInfoToCard(target, bookObject) {
 
   card.classList.add('card');
   container.classList.add('container');
-  card.dataset.id = myLibrary.length - 1;
+  card.dataset.id = libraryArray.length - 1;
 
-  title.textContent = bookObject.title;
-  author.textContent = bookObject.author;
-  pages.textContent = bookObject.pages;
+  title.textContent = libraryArray[libraryArray.length - 1].title;
+  author.textContent = libraryArray[libraryArray.length - 1].author;
+  pages.textContent = libraryArray[libraryArray.length - 1].pages;
 
   const buttonContainer = document.createElement('div');
   const removeButton = document.createElement('button');
