@@ -162,6 +162,10 @@ ul li:last-child {
   justify-content: space-between;
 }
 
+.main__library .card.green {
+  background-color: green;
+}
+
 .main__library .card .button-container {
   display: flex;
   flex-direction: column;
