@@ -118,7 +118,6 @@ function attachListenerToButtons(card, remove, readStatus) {
       myLibrary.splice(index, 1);
       this.remove();
       reassignDataID(index);
-      console.log(myLibrary);
     }
 
     removeCard.call(card);
@@ -128,7 +127,6 @@ function attachListenerToButtons(card, remove, readStatus) {
     function toggleReadStatus() {
       const index = this.dataset.id;
       myLibrary[index].updateReadStatus();
-      console.log(myLibrary[index].readStatus);
       event.target.textContent = myLibrary[index].readStatus === true ? 'Read' : 'Not Read';
       this.classList.toggle('green');
     }
