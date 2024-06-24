@@ -11,6 +11,10 @@ function Book(title, author, pages) {
   this.readStatus = false;
 }
 
+Book.prototype.updateReadStatus = function() {
+  this.readStatus = this.readStatus === false ? true : false;
+}
+
 addButton.addEventListener("click", (event) => {
   event.preventDefault();
   
@@ -24,7 +28,7 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
     case "add":
       const inputs = modal.querySelectorAll('ul input');
       getBookInfo(inputs);
-      clearInput(inputs);
+      // clearInput(inputs);
       break;
     case "close":
       modal.close();
@@ -121,21 +125,15 @@ function attachListenerToButtons(card, remove, readStatus) {
   });
 
   readStatus.addEventListener('click', function(event) {
-    function updateReadStatus() {
+    function toggleReadStatus() {
       const index = this.dataset.id;
-      if (myLibrary[index].readStatus) {
-        myLibrary[index].readStatus = false;
-        event.target.textContent = 'Not Read';
-        this.style.background = '#893d11';
-      } else if (!myLibrary[index].readStatus) {
-        myLibrary[index].readStatus = true;
-        event.target.textContent = 'Read';
-        this.style.background = '#bef264';
-      }
-      console.log(myLibrary);
+      myLibrary[index].updateReadStatus();
+      console.log(myLibrary[index].readStatus);
+      event.target.textContent = myLibrary[index].readStatus === true ? 'Read' : 'Not Read';
+      this.classList.toggle('green');
     }
 
-    updateReadStatus.call(card);
+    toggleReadStatus.call(card);
   });
 }
 
