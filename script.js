@@ -4,15 +4,17 @@ const modalButtons = document.querySelectorAll('.modal button');
 const library = document.querySelector('.main__library');
 const myLibrary = [];
 
-function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = false;
-}
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = false;
+  }
 
-Book.prototype.updateReadStatus = function() {
-  this.readStatus = this.readStatus === false ? true : false;
+  updateReadStatus() {
+    this.readStatus = this.readStatus === false ? true : false;
+  }
 }
 
 addButton.addEventListener("click", (event) => {
@@ -67,6 +69,7 @@ function addBookToLibrary(title, author, pages) {
   }
   const book = new Book(title, author, pages);
   myLibrary.push(book);
+  console.log(book, myLibrary);
 
   copyInfoToCard(library, myLibrary);
 }
