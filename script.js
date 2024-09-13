@@ -24,13 +24,15 @@ addButton.addEventListener("click", (event) => {
 });
 
 modalButtons.forEach(button => button.addEventListener("click", function(event) {
-  
+  event.preventDefault(); // Prevent form submission for all buttons
+
   switch (event.target.className) {
     case "add":
       const inputs = modal.querySelectorAll('ul input');
-      checkValidity(inputs);
-      getBookInfo(inputs);
-      // clearInput(inputs);
+      if (checkValidity(inputs)) {  // Only proceed if all inputs are valid
+        getBookInfo(inputs);
+        clearInput(inputs);
+      }
       break;
     case "close":
       modal.close();
@@ -42,15 +44,37 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
 
 function checkValidity(inputs) {
   const [title, author, pages] = inputs;
+  let valid = true;
 
-  if (title.validity.valueMissing) {
-    title.setCustomValidity("Please enter a valid title!");
-  } else if (author.validity.valueMissing) {
+  // Clear previous custom messages
+  title.setCustomValidity('');
+  author.setCustomValidity('');
+  pages.setCustomValidity('');
+
+  // Check validity for each input and set custom messages
+
+  if (!title.value) {
+    title.setCustomValidity('Please enter a valid title!');
+    title.reportValidity();
+    valid = false;
+    return valid;
+  }
+  
+  if (!author.value) {
     author.setCustomValidity("Please enter a valid author!");
-  } else if (pages.validity.valueMissing) {
-    pages.setCustomValidity('Please enter a number');
+    author.reportValidity();
+    valid = false;
+    return valid;
+  }
+  
+  if (!pages.value) {
+    pages.setCustomValidity("Please enter the number of pages");
+    pages.reportValidity();
+    valid = false;
+    return valid;
   }
 
+  return valid; // Return if the inputs are valid or not
 }
 
 function getBookInfo(inputList) {
