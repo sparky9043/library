@@ -24,13 +24,13 @@ addButton.addEventListener("click", (event) => {
 });
 
 modalButtons.forEach(button => button.addEventListener("click", function(event) {
-  event.preventDefault();
   
   switch (event.target.className) {
     case "add":
       const inputs = modal.querySelectorAll('ul input');
+      checkValidity(inputs);
       getBookInfo(inputs);
-      clearInput(inputs);
+      // clearInput(inputs);
       break;
     case "close":
       modal.close();
@@ -39,6 +39,19 @@ modalButtons.forEach(button => button.addEventListener("click", function(event) 
       break;
   }
 }));
+
+function checkValidity(inputs) {
+  const [title, author, pages] = inputs;
+
+  if (title.validity.valueMissing) {
+    title.setCustomValidity("Please enter a valid title!");
+  } else if (author.validity.valueMissing) {
+    author.setCustomValidity("Please enter a valid author!");
+  } else if (pages.validity.valueMissing) {
+    pages.setCustomValidity('Please enter a number');
+  }
+
+}
 
 function getBookInfo(inputList) {
   let title;
@@ -63,8 +76,7 @@ function clearInput(inputList) {
 
 
 function addBookToLibrary(title, author, pages) {
-  if (!title || !author) {
-    alert("Please make sure to fill out the title and the author");
+  if (!title || !author || !pages) {
     return;
   }
   const book = new Book(title, author, pages);
